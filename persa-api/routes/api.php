@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+     Route::apiResource('career', CareerController::class);
+    Route::apiResource('course', CourseController::class);
+    Route::apiResource('location', LocationController::class);
+    Route::apiResource('permission', PermissionController::class);
+    Route::apiResource('permissionType', PermissionTypeController::class);
+    Route::apiResource('roles', RolesController::class);
+    Route::apiResource('users', UsersController::class);
+
