@@ -33,7 +33,7 @@ class PermissionController extends Controller
     public function index()
     {
         $permissions = Permission::all();
-        $permissions->load(['users','location','permission_type']);
+        $permissions->load(['instructor_user','apprentice_user','guard_user','location','permissionType']);
         return response()->json($permissions, Response::HTTP_OK);
     }
 
@@ -42,6 +42,7 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
+        
         $data = $this->applyValidator($request, $this->rules, $this->traductionAttributes);
         if(!empty($data)){
             return $data;
@@ -61,7 +62,7 @@ class PermissionController extends Controller
      */
     public function show(Permission $permission)
     {
-        $permission->load(['users','location','permission_type']);
+        $permission->load(['instructor_user','apprentice_user','guard_user','location','permissionType']);
         return response()->json($permission, Response::HTTP_OK);
     }
 
@@ -91,8 +92,11 @@ class PermissionController extends Controller
     {
         $permission->delete();
         $response = [
-            'message' => 'Permiso eliminada exitosamente',
+            'message' => 'Permiso eliminado exitosamente',
             'permission' => $permission
         ];
+
+        return response()->json($response, Response::HTTP_OK);
+
     }
 }
