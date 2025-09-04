@@ -40,7 +40,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        $users->load(['roles']);
+        $users->load(['role']);
         return response()->json($users, Response::HTTP_OK);
     }
   
@@ -54,7 +54,7 @@ class UserController extends Controller
             return $data;
         }
 
-        $user = User::crete($request->all());
+        $user = User::create($request->all());
         $response = [
             'message' => 'Usuario creado exitosamente',
             'user' => $user
