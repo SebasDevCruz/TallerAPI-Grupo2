@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Illuminate\Http\Client\Response as ClientResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -58,7 +57,7 @@ class UserController extends Controller
         $user = User::crete($request->all());
         $response = [
             'message' => 'Usuario creado exitosamente',
-            'activity' => $user
+            'user' => $user
         ];
 
         return response()->json($response, Response::HTTP_CREATED);
@@ -81,7 +80,7 @@ class UserController extends Controller
         $user->update($request->all());
         $response = [
             'message' => 'Usuario actualizado exitosamente',
-            'activity' => $user
+            'user' => $user
         ];
         return response()->json($response, Response::HTTP_CREATED);
     }
@@ -94,7 +93,7 @@ class UserController extends Controller
         $user -> delete();
         $response = [
             'message' => 'Usuario eliminado exitosamente',
-            'technician' => $user
+            'user' => $user
         ];
 
         return response()->json($response, Response::HTTP_OK);
