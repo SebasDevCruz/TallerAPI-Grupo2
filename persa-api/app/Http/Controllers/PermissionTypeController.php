@@ -47,25 +47,25 @@ class PermissionTypeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PermissionType $permission_type)
+    public function show(PermissionType $permissionType)
     {
-        return response()->json($permission_type, Response::HTTP_OK);
+        return response()->json($permissionType, Response::HTTP_OK);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PermissionType $permission_type)
+    public function update(Request $request, PermissionType $permissionType)
     {
         $data = $this->applyValidator($request, $this->rules, $this->traductionAttributes);
         if(!empty($data)){
             return $data;
         }
 
-        $permission_type->update($request->all());
+        $permissionType->update($request->all());
         $response = [
             'message' => 'Tipo de permiso actualizado exitosamente',
-            'permissionType' => $permission_type
+            'permissionType' => $permissionType
         ];
 
         return response()->json($response, Response::HTTP_OK);
@@ -74,12 +74,12 @@ class PermissionTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PermissionType $permission_type)
+    public function destroy(PermissionType $permissionType)
     {
-        $permission_type->delete();
+        $permissionType->delete();
         $response = [
             'message' => 'Tipo de permiso eliminado exitosamente',
-            'permissionType' => $permission_type
+            'permissionType' => $permissionType
         ];
 
         return response()->json($response, Response::HTTP_OK);
