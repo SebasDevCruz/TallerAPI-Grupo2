@@ -40,7 +40,7 @@ class CareerController extends Controller
 
         $career = Career::create($request->all());
         $response = [
-            'message' => 'Registro creado exitosamente',
+            'message' => 'Programa creado exitosamente',
             'career' => $career
         ];
 
@@ -67,7 +67,7 @@ class CareerController extends Controller
 
         $career->update($request->all());
         $response = [
-            'message' => 'Registro actualizado exitosamente',
+            'message' => 'Programa actualizado exitosamente',
             'career' => $career
         ];
 
@@ -82,7 +82,7 @@ class CareerController extends Controller
         $career -> delete();
 
         $response = [
-            'message' => 'Registro eliminado exitosamente',
+            'message' => 'Programa eliminado exitosamente',
             'career' => $career
         ];
 
