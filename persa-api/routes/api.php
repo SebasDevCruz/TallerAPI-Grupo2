@@ -30,5 +30,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::apiResource('permission', PermissionController::class);
     Route::apiResource('permissionType', PermissionTypeController::class);
     Route::apiResource('roles', RolesController::class);
-    Route::apiResource('users', UserController::class);
-
+    Route::apiResource('user', UserController::class);

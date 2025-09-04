@@ -88,6 +88,10 @@ class CourseController extends Controller
      */
     public function destroy(Course $course){
         $course->delete();
-        return response()->json($course, Response::HTTP_NO_CONTENT);
+        $response = [
+            'message' => 'Curso eliminado exitosamente',
+            'course' => $course
+        ];
+        return response()->json($response, Response::HTTP_OK);
     }
 }
