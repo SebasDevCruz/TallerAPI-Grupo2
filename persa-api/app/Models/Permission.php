@@ -25,8 +25,7 @@ class Permission extends Model
         'status',
         'location_id',
         'permission_type_id',
-        'apprentice_id',
-        'career_id'
+        'apprentice_id'
     ];
 
     /**

@@ -2,7 +2,12 @@
 
 namespace App\Exceptions;
 
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\Response;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -18,6 +23,11 @@ class Handler extends ExceptionHandler
         'password_confirmation',
     ];
 
+    private $url=[
+        'career', 'course', 'location', 'permission', 'permission_type', 'roles', 'users'
+    ];
+
+
     /**
      * Register the exception handling callbacks for the application.
      */
@@ -26,5 +36,38 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+
+        $this->renderable(function(NotFoundHttpException $e, $request){
+            $urlFinal = preg_filter('/^/', 'api/', $this->url);
+            $urlFinal = preg_filter('/$/', '/*', $urlFinal);
+
+            if ($request->is($urlFinal)) {
+                return response()->json([
+                    'message' => 'Registro no encontrado'
+                ], Response::HTTP_NOT_FOUND);
+            }
+        });
+
+        $this->renderable(function(MethodNotAllowedHttpException $e, $request){
+            return response()->json([
+                    'message' => 'Metodo no encontrado'
+            ], Response::HTTP_METHOD_NOT_ALLOWED);
+        });
+    }
+
+    public function render($request, Throwable $exception){
+        if ($exception instanceof AuthorizationException) {
+            return response()->json([
+                    'message' => 'Acceso denegado'
+            ], Response::HTTP_FORBIDDEN);
+        }
+
+        if ($exception instanceof RouteNotFoundException) {
+            return response()->json([
+                    'message' => 'Debe de iniciar sesion'
+            ], Response::HTTP_UNAUTHORIZED);
+        }
+
+        return parent::render($request, $exception);
     }
 }
