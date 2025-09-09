@@ -23,7 +23,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
     Route::apiResource('career', CareerController::class);
     Route::apiResource('course', CourseController::class);
     Route::apiResource('location', LocationController::class);
@@ -31,3 +30,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::apiResource('permissionType', PermissionTypeController::class);
     Route::apiResource('roles', RolesController::class);
     Route::apiResource('user', UserController::class);
+});

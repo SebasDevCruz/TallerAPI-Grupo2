@@ -4,103 +4,62 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PERSA - Aplicativo SENA</title>
-  <style>
-    body {
-      font-family: 'Nunito', sans-serif;
-      background: #f4f6f8;
-      margin: 0;
-      padding: 0;
-      color: #222;
-    }
-    .container-main {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
-    .title {
-      text-align: center;
-      font-size: 3rem;
-      font-weight: 900;
-      color: #22c55e;
-      margin-bottom: 0.25rem;
-    }
-    .subtitle {
-      text-align: center;
-      font-size: 1.25rem;
-      color: #64748b;
-      margin-bottom: 2rem;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 1.5rem;
-    }
-    .content-card {
-      background: white;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-      transition: box-shadow 0.3s ease;
-    }
-    .content-card:hover {
-      box-shadow: 0 10px 30px rgba(34,197,94,0.3);
-    }
-    .title-card {
-      display: block;
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: #16a34a;
-      margin-bottom: 0.75rem;
-    }
-    .text-card {
-      font-size: 1rem;
-      color: #4b5563;
-      line-height: 1.5;
-    }
-    @media (max-width: 768px) {
-      .title {
-        font-size: 2.5rem;
-      }
-      .subtitle {
-        font-size: 1rem;
-      }
-    }
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 </head>
 <body>
   <div class="container-main">
+    <div class="logo">
+      <img src="https://github.com/anfeles85/persa-sena/blob/G2/persa/public/img/persa-logo-readme.png?raw=true" alt="PERSA Logo">
+    </div>
     <h1 class="title">PERSA</h1>
-    <h3 class="subtitle">PERSA es un aplicativo SENA</h3>
+    <h3 class="subtitle">Aplicativo web para la gestión integral de permisos y procesos en el SENA</h3>
 
     <div class="cards">
       <div class="content-card">
-        <label class="title-card">USUARIOS</label>
-        <p class="text-card">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae consequatur possimus assumenda eligendi, neque ullam maxime sit incidunt reprehenderit atque est ipsa nam? Labore, nobis nihil? Consectetur non earum quidem!</p>
+        <label class="title-card bi bi-people-fill text-sm">Usuarios</label>
+        <p class="text-card">Gestión de aprendices, instructores y administradores con control de acceso seguro.</p>
       </div>
       <div class="content-card">
-        <label class="title-card">PROGRAMAS</label>
-        <p class="text-card">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae consequatur possimus assumenda eligendi, neque ullam maxime sit incidunt reprehenderit atque est ipsa nam? Labore, nobis nihil? Consectetur non earum quidem!</p>
+        <label class="title-card bi bi-journal-bookmark-fill">Programas</label>
+        <p class="text-card">Administración de los programas académicos ofrecidos por el SENA.</p>
       </div>
       <div class="content-card">
-        <label class="title-card">SEDES</label>
-        <p class="text-card">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae consequatur possimus assumenda eligendi, neque ullam maxime sit incidunt reprehenderit atque est ipsa nam? Labore, nobis nihil? Consectetur non earum quidem!</p>
+        <label class="title-card bi bi-building">Sedes</label>
+        <p class="text-card">Registro y control de las diferentes sedes y ubicaciones de formación.</p>
       </div>
       <div class="content-card">
-        <label class="title-card">FICHAS</label>
-        <p class="text-card">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae consequatur possimus assumenda eligendi, neque ullam maxime sit incidunt reprehenderit atque est ipsa nam? Labore, nobis nihil? Consectetur non earum quidem!</p>
+        <label class="title-card bi bi-card-list">Fichas</label>
+        <p class="text-card">Manejo de grupos de aprendices vinculados a programas y cursos específicos.</p>
       </div>
       <div class="content-card">
-        <label class="title-card">PERMISOS</label>
-        <p class="text-card">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae consequatur possimus assumenda eligendi, neque ullam maxime sit incidunt reprehenderit atque est ipsa nam? Labore, nobis nihil? Consectetur non earum quidem!</p>
+        <label class="title-card bi bi-card-checklist">Permisos</label>
+        <p class="text-card">Gestión centralizada de solicitudes, aprobaciones y reportes de permisos.</p>
       </div>
       <div class="content-card">
-        <label class="title-card">ROLES</label>
-        <p class="text-card">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae consequatur possimus assumenda eligendi, neque ullam maxime sit incidunt reprehenderit atque est ipsa nam? Labore, nobis nihil? Consectetur non earum quidem!</p>
+        <label class="title-card bi bi-shield-lock-fill">Roles</label>
+        <p class="text-card">Asignación de funciones y niveles de acceso a usuarios dentro del sistema.</p>
       </div>
       <div class="content-card">
-        <label class="title-card">TIPOS DE PERMISOS</label>
-        <p class="text-card">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae consequatur possimus assumenda eligendi, neque ullam maxime sit incidunt reprehenderit atque est ipsa nam? Labore, nobis nihil? Consectetur non earum quidem!</p>
+        <label class="title-card bi bi-diagram-3-fill">Tipos de Permisos</label>
+        <p class="text-card">Clasificación personalizada de los diferentes tipos de permisos disponibles.</p>
       </div>
+    </div>
+
+    <div class="tech">
+      <p>Tecnologías usadas</p>
+      <img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white">
+      <img src="https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
+      <img src="https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black">
+      <img src="https://img.shields.io/badge/PHP-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white">
+      <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+      <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+    </div>
+
+    <div class="credits">
+      Proyecto desarrollado como actividad del <strong>SENA - Servicio Nacional de Aprendizaje</strong>  
+      en el programa de <strong>ADSO</strong>, con apoyo del <strong>CLEM</strong>.
     </div>
   </div>
 </body>
